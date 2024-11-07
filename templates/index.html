@@ -4,11 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello</title>
-    <link rel="stylesheet" href="{{url_for('static', path='styles.css')}}" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', path='./css/styles.css')}}"
+    />
   </head>
   <body>
     <h1>Ce que vous voulez la dedans</h1>
     <p>{{name}}</p>
+    <img
+      src="{{url_for('static',
+    path='img/cosmic-timetraveler-LhDWW8PhPoE-unsplash-2.jpg')}}"
+    />
     <ul>
       {%for friend in friends%} {% if friend == "Yoshi" %}
       <li class="toto">{{ friend }}</li>
@@ -16,5 +23,7 @@
       <li>{{friend}}</li>
       {% endif %} {%endfor%}
     </ul>
+
+    {% include "footer.html" %}
   </body>
 </html>
