@@ -1,0 +1,20 @@
+# CRUCIAL
+venv/
+
+# Fichiers compilés Python
+__pycache__/
+*.py[cod]
+
+# VSCode
+.vscode/
+
+# Fichiers de log 
+*.log
+
+# BDD locale (sauf interros)
+*.sqlite 
+
+# Fichier systeme
+.DS_Store
+**/.DS_Store
+Thumbs.db
