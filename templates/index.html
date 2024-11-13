@@ -17,9 +17,14 @@
     path='img/cosmic-timetraveler-LhDWW8PhPoE-unsplash-2.jpg')}}"
     />
     <ul>
-      {%for friend in friends%} {% include "friend.html" %} {%endfor%}
+      {%for friend in friends%} {% if friend == "Yoshi" %}
+      <li class="toto">{{ friend }}</li>
+      {% else %}
+      <li>{{friend}}</li>
+      {% endif %} {%endfor%}
     </ul>
 
-    {% include "footer.html" %}
+    {%for friend in friends%} {% include "friend.html" %} {%endfor%} {% include
+    "footer.html" %}
   </body>
 </html>
