@@ -7,37 +7,33 @@ CREATE TABLE IF NOT EXIST stage (
     text TEXT
 )
 '''
+# bdd.py
+from stage import Stage, fake_stage
 
-from sqlmodel import SQLModel, Field, create_engine, Session
-from typing import Optional
+from database import get_session
+from sqlmodel import select
 
-file_name = "database.sqlite"
 
-class Stage(SQLModel, table=True):
-    # Definition de la structure de la table = une classe
-    __tablename__ = "Stages"
-    id: Optional[int] = Field(default=None, primary_key=True)
-    poste : str
-    entreprise : str
-    expedition : str
-    url : Optional[str] = None
+# INSERTION
+with get_session() as session:
+    for _ in range(0):
+        new_stage = fake_stage()
+        session.add(new_stage) #insert
+        session.commit() #commit
+        session.refresh(new_stage) #recup_id
+        print(new_stage)
+        print(new_stage.id)
 
-# Initialiser le moteur 
-engine = create_engine(f"sqlite:///{file_name}")
+# SELECT
+with get_session() as session:
+    statement = select(Stage)
+    results = session.exec(statement).all()
+    for stage in results :
+        print(stage)
 
-# Créer tables si nécessaire 
-SQLModel.metadata.create_all(engine)
-
-# Manipulation de la table
-with Session(engine) as session:
-    new_stage = Stage(
-        poste="Dévloppeur Web",
-        entreprise="Jerem Corp",
-        expedition="2024-11-10",
-        url="https://jerem.com/jobs"
-    )
-    session.add(new_stage) #insert
-    session.commit() #commit
-    session.refresh(new_stage) #recup_id
-    print(new_stage)
-    print(new_stage.id)
+with get_session() as session:
+    statement = select(Stage).where(Stage.entreprise == 'Jerem Corp')
+    statement = select(Stage).where(Stage.entreprise.like("%ch"))
+    results = session.exec(statement).all()
+    for stage in results :
+        print(stage)
