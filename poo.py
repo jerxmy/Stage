@@ -17,8 +17,8 @@ print(cat2.name, cat2.legs)
 
 # PARTIE CHIEN
 
-my_dog = Dog(name="Red", age=10)
-print(my_dog.get_age())
+my_dog = Dog(name="Idefix")
+print(my_dog)
 
 print(my_dog)
 print(my_dog.name)
