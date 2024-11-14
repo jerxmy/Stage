@@ -49,7 +49,7 @@ classDiagram
 
 ```
 
-```plantuml
+```puml
 @staruml
 User ->(Start)
 User ->(Use)
