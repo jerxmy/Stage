@@ -1,6 +1,6 @@
-from animal import Animal
+from animal import Animal, Target
 
-class Cat(Animal):
+class Cat(Animal, Target):
     legs = 4
 
     def __init__(self, name, age=0):
@@ -29,3 +29,6 @@ class Cat(Animal):
             self.__age = age
         else :
             print("ERREUR")
+if __name__ == "__main__":
+    my = Cat("Gardfield")
+    my.boom()
