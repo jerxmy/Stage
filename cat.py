@@ -1,4 +1,6 @@
-class Cat:
+from animal import Animal
+
+class Cat(Animal):
     legs = 4
 
     def __init__(self, name, age=0):
