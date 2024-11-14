@@ -48,3 +48,12 @@ classDiagram
     Animal <|-- Dog : Heritage
 
 ```
+
+```plantuml
+@staruml
+User ->(Start)
+User ->(Use)
+:Main Admin: as Admin
+Admin -> (Use)
+enduml
+```
