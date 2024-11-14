@@ -9,14 +9,14 @@ CREATE TABLE IF NOT EXIST stage (
 '''
 # bdd.py
 from stage import Stage, fake_stage
-from project import Project, proj
+from project import Project, Proj
 
 from database import get_session
 from sqlmodel import select
 
 
 with get_session() as session:
-    session.add(Project(
+    session.add(Proj(
         rubrique="vue.js",
         nom="Jerem",
         image="img/jerem.jpg",
