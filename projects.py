@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXIST Project (
 )
 '''
 # bdd.py
-from project import Project, Proj
+from project_class import Project, Proj
 
 from database import get_session
 from sqlmodel import select
