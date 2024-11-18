@@ -37,6 +37,7 @@ class Projet(SQLModel, table=True):
             session.add(item)
             session.commit()
             session.refresh(item)
+            return item.model_dump()
 
 
 
