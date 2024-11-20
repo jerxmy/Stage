@@ -34,3 +34,11 @@ async def create_projet(request: Request):
         rendu= rendu
     )
     return result
+
+@router.delete("/projets/{id}", response_model=bool)
+def delete_projet(id : int):
+    sucess = Projet.delete(id)
+    if not sucess:
+         raise HTTPException(status_code=404, detail="Not Found... Try again")
+    
+    raise HTTPException(status_code=204, detail="Deleted")
