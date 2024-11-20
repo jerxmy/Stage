@@ -51,7 +51,8 @@ async def update_stage(id : int, request : Request):
         raise HTTPException(status_code=400, detail="Data missing")
     poste = body.get("poste")
     entreprise = body.get("entreprise")
-    expedition = body.get("expedition")
+    expedition = body.get("expedition"
+                          )
     url = body.get("url")
     if not any([poste, entreprise, expedition, url]):
         raise HTTPException(status_code=400, detail="Data missing")
