@@ -5,10 +5,12 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 
 from project_routes import router as projet_routes
+from stage_routes import router as stage_routes
 
 app = FastAPI() #Créer une instance 
 
 app.include_router(projet_routes)
+app.include_router(stage_routes)
 
 # Init request motor
 templates = Jinja2Templates(directory="templates")

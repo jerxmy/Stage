@@ -42,3 +42,27 @@ def delete_projet(id : int):
          raise HTTPException(status_code=404, detail="Not Found... Try again")
     
     raise HTTPException(status_code=204, detail="Deleted")
+
+@router.put("/projets/{id}", response_model=Projet)
+async def update_projet(id : int, request : Request):
+    try:
+        body = await request.json()
+    except Exception:
+        raise HTTPException(status_code=400, detail="Data missing")
+    rubrique = body.get("rubrique")
+    nom = body.get("nom")
+    image = body.get("image", "default.jpg")
+    rendu = body.get("rendu")
+    if not any([rubrique, nom, image, rendu]):
+        raise HTTPException(status_code=400, detail="Data missing")
+    
+    result = Projet.update(
+        id= id,
+        rubrique= rubrique,
+        nom= nom,
+        image= image,
+        rendu= rendu
+    )
+    if result is None:
+        raise HTTPException(status_code=404, detail="Not Found... Try again")
+    return result
