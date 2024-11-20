@@ -1,0 +1,19 @@
+GET http://127.0.0.1:8000
+
+###
+GET http://127.0.0.1:8000/projets
+
+###
+GET http://127.0.0.1:8000/projets/1
+
+###
+POST  http://127.0.0.1:8000/projets
+Content-Type: application/json
+
+{
+    "rubrique": "python",
+    "nom": "Hmmm Hmmm",
+    "image": "hmmm.jpg",
+    "rendu": "demain",
+    "url": null
+  }
