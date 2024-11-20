@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXIST stage (
 '''
 # bdd.py
 from stage_class import Stage, fake_stage
-from project_class import Project, Proj
+from project_model import Project, Proj
 
 from database import get_session
 from sqlmodel import select
